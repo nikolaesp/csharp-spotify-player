@@ -32,17 +32,18 @@ namespace csharp_spotify_player
 
         public void Pause()
         {
-            throw new NotImplementedException();
+
+            Console.WriteLine("Messo in pausa il podcast "+name+" di "+host+" & "+guests+".");
         }
 
         public void Play()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Riproduzione del podcast " + name + " di " + host + " & " + guests +".");
         }
 
         public void Stop()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Messo in stop il podcast " + name + " di " + host + " & " + guests +" e riavvolto all’inizio del podcast.");
         }
     }
 }

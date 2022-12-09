@@ -26,20 +26,26 @@ namespace csharp_spotify_player
         public void SetName(string name) { this.name = name;}
         public void SetArtist(string artist) { this.artist = artist;}
         public void SetDuration(int duration) { this.duration = duration;}
+
+        public void print()
+        {
+            Console.WriteLine("Brano: "+name+" di "+artist+" lungha: "+duration+"min.");
+
+        }
         public void Pause()
         {
           
-            Console.WriteLine("Messo in pausa il brano {$name} di {$artist}.");
+            Console.WriteLine("Messo in pausa il brano "+name+" di "+artist+".");
         }
 
         public void Play()
         {
-            Console.WriteLine("Riproduzione del brano {$name} di {$artist}.");
+            Console.WriteLine("Riproduzione del brano "+name+" di "+artist+".");
         }
 
         public void Stop()
         {
-            Console.WriteLine("Messo in stop il brano {$name} di {$artist} e riavvolto all’inizio del brano");
+            Console.WriteLine("Messo in stop il brano "+name+" di "+artist+" e riavvolto all’inizio del brano");
         }
     }
 }
