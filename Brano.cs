@@ -6,46 +6,42 @@ using System.Threading.Tasks;
 
 namespace csharp_spotify_player
 {
-    internal class Brano : IContenutoRiproducibile
+    internal class Brano : ContenutoAudio
     {
-        private string  name;
+      
         private string artist;
-        private int duration;
 
-        public Brano(string name, string artist, int duration)
+
+
+        public Brano(string artist, string name, int duration) : base(name, duration)
         {
-            this.name = name;
             this.artist = artist;
-            this.duration = duration;
-
         }
-
-        public string GetName() { return this.name; }
+   
         public string GetArtist() { return this.artist;}
-        public int GetDuration() { return this.duration;}
-        public void SetName(string name) { this.name = name;}
+      
         public void SetArtist(string artist) { this.artist = artist;}
-        public void SetDuration(int duration) { this.duration = duration;}
+        
 
         public void print()
         {
-            Console.WriteLine("Brano: "+name+" di "+artist+" lungha: "+duration+"min.");
+            Console.WriteLine($"Brano: {GetName} di {artist} lungha: {GetDuration}min.");
 
         }
-        public void Pause()
+        public override void Pause()
         {
-          
-            Console.WriteLine("Messo in pausa il brano "+name+" di "+artist+".");
+
+            Console.WriteLine("Messo in pausa il brano " + this.GetName() + " di " + GetArtist + ".");
         }
 
-        public void Play()
+        public  override void Play()
         {
-            Console.WriteLine("Riproduzione del brano "+name+" di "+artist+".");
+            Console.WriteLine("Riproduzione del brano "+GetName+" di "+GetArtist+".");
         }
 
-        public void Stop()
+        public override void Stop()
         {
-            Console.WriteLine("Messo in stop il brano "+name+" di "+artist+" e riavvolto all’inizio del brano");
+            Console.WriteLine("Messo in stop il brano "+GetName+" di "+GetArtist+" e riavvolto all’inizio del brano");
         }
     }
 }

@@ -6,44 +6,41 @@ using System.Threading.Tasks;
 
 namespace csharp_spotify_player
 {
-    internal class Podcast : IContenutoRiproducibile
+    internal class Podcast : ContenutoAudio
     {
-        private string name;
+    
         private string host;
         private string guests;
-        private int duration;
+       
 
-        public Podcast(string name, string host, string guests, int duration)
+        public Podcast(string name, string host, string guests, int duration):base(name,duration) 
         {
-            this.name = name;
+           
             this.host = host;
             this.guests = guests;
-            this.duration = duration;
+            
         }
-        public string Name { get { return name; } }
+       
         public string Host { get { return host; } }
         public string Guests { get { return guests; } }
-        public int Duration { get { return duration; } }
 
-        public void SetName(string name) { this.name = name;}
         public void SetHost(string host) { this.host = host;}
         public void SetGuests(string guests) { this.guests = guests;}
-        public void SetDuration(int duration) { this.duration = duration;}
 
-        public void Pause()
+        public override void Pause()
         {
 
-            Console.WriteLine("Messo in pausa il podcast "+name+" di "+host+" & "+guests+".");
+            Console.WriteLine("Messo in pausa il podcast "+GetName+" di "+host+" & "+guests+".");
         }
 
-        public void Play()
+        public override void Play()
         {
-            Console.WriteLine("Riproduzione del podcast " + name + " di " + host + " & " + guests +".");
+            Console.WriteLine("Riproduzione del podcast " + GetName + " di " + host + " & " + guests +".");
         }
 
-        public void Stop()
+        public override void Stop()
         {
-            Console.WriteLine("Messo in stop il podcast " + name + " di " + host + " & " + guests +" e riavvolto all’inizio del podcast.");
+            Console.WriteLine("Messo in stop il podcast " + GetName + " di " + host + " & " + guests +" e riavvolto all’inizio del podcast.");
         }
     }
 }
